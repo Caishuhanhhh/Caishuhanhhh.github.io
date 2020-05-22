@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="用JS库把markdown转换为html, Windy">
+    <meta name="keywords" content="实现类似看云的最基本功能(类似markdow）, Windy">
     <meta name="description" content="行百里者半九十">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>用JS库把markdown转换为html | Windy</title>
+    <title>实现类似看云的最基本功能(类似markdow） | Windy</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/22/YOPfwn.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/22/YOi5Bd.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">用JS库把markdown转换为html</h1>
+                    <h1 class="description center-align post-title">实现类似看云的最基本功能(类似markdow）</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/javascript/">
-                                <span class="chip bg-color">javascript</span>
+                            <a href="/tags/JavaScript-PHP/">
+                                <span class="chip bg-color">JavaScript + PHP</span>
                             </a>
                         
                     </div>
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    344
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -501,9 +501,83 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>原来CSDN博客内容 首发19年<br>在实习单位，要求写一个类似wiki的出来，然后本人JS学的不是很好，没办短时间写出来。从网上找了好多，也没有合适的，最后在推荐 （具体是哪个大神现在找不到了 等找到马上感谢他）这个<a href="https://github.com/showdownjs/showdown/releases直接下压缩包，然后dist文件里面引入shoudown.min.js即可。" target="_blank" rel="noopener">https://github.com/showdownjs/showdown/releases直接下压缩包，然后dist文件里面引入shoudown.min.js即可。</a></li>
-</ul>
+                <p>依旧是搬运自己的csdn博客<br>要求：实现类似看云的最基本功能。</p>
+<p>语言：PHP ，框架Thinkphp</p>
+<p>要点：如何实现同一页面展示不同内容、实现静态html文件自动更新、PHP如何遍历所有文件以及文件夹、读取文件内容Thinkphp的标签的使用、markdown文件的读取并转码显示。</p>
+<p>对了，不是基于数据库的。就是一个特别low的东西</p>
+<p>特别提醒 目录和文件夹在本文中指的是一个意思</p>
+<p>前端（省略CSS）</p>
+<p>wikiz主页由三个 和 两个(框架)组成。</p>
+ 头部 head.html  
+
+ 左侧目录  index.html
+
+ 内容部分  body.html 分支 one.html、 one_1.html 、one_two.html （分别是章节、一级、二级）[1]
+
+<p>重点是 index.html 和 body.html</p>
+<p>index.html  主要负责由后台传过来关于目录和文件的情况，然后按等级展示。</p>
+<p>body.html  主要负责由根据左侧目录的变化接收后台传过来的内容，然后展示在body区域</p>
+<p>index代码</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token comment" spellcheck="true">&lt;!--[if lt IE 7]>      &lt;html class="no-js lt-ie9 lt-ie8 lt-ie7"> &lt;![endif]--></span>
+<span class="token comment" spellcheck="true">&lt;!--[if IE 7]>         &lt;html class="no-js lt-ie9 lt-ie8"> &lt;![endif]--></span>
+<span class="token comment" spellcheck="true">&lt;!--[if IE 8]>         &lt;html class="no-js lt-ie9"> &lt;![endif]--></span>
+<span class="token comment" spellcheck="true">&lt;!--[if gt IE 8]>&lt;!--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no-js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--&lt;![endif]--></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>IE<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>description<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+        <span class="token selector">a<span class="token pseudo-class">:link</span> </span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+            <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token selector">a<span class="token pseudo-class">:visited</span> </span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> brown<span class="token punctuation">;</span>
+            <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token selector">a<span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> darkorange<span class="token punctuation">;</span>
+            <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token selector">a<span class="token pseudo-class">:active</span> </span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> sienna<span class="token punctuation">;</span>
+            <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--[if lt IE 7]>
+            &lt;p class="browsehappy">You are using an &lt;strong>outdated&lt;/strong> browser. Please &lt;a href="#">upgrade your browser&lt;/a> to improve your experience.&lt;/p>
+        &lt;![endif]--></span>
+
+    {volist name = "test" id="vo"}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index_one.html?file_one<span class="token punctuation">=</span>{$vo.title}<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body_right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>章节{$vo.title}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+    {volist name = "vo[ 'lists'] " id="voo"}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index_one_1.html?file_two<span class="token punctuation">=</span>{$vo.title}\{$voo.title}<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body_right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{$voo.title}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+    {volist name = "voo[ 'lists'] " id="vooo" key ="z"}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index_one_2.html?file_three<span class="token punctuation">=</span>{$vo.title}\{$voo.title}\{$vooo.title}<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body_right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{$vooo.title}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+    {/volist} {/volist} {/volist}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>body.html 代码</p>
+<p>以下三个网页的代码基本上相同，其中最重要的是Markdown的解析，我在网上找了好久，找到GitHub大神的js库，拿来可用，非常感谢。有时间研究一下怎么把markdown的标签转码为html。</p>
 <pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 
@@ -539,6 +613,94 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>前端基本告一段落</p>
+<p>后端</p>
+<p>controller 由 Book.php构成共有 8 个方法 其中重要的有 2个</p>
+<p>关于遍历目录这个大家应该都能想到，就是用递归的方法。递归失败了两次，后来看到大神的代码，突然明白，感谢。</p>
+<p>大体思路 ：</p>
+<p>匿名函数或者普通函数都可以。</p>
+<p>需要用到的函数 file_exists()、scandir() 、is_dir()、 is_file() 、substr() 、realpath()</p>
+<p>一个常量 DIRECTORY_SEPARATOR 在win 下为 \  在liunx下为 / 分割路径用</p>
+<p>。。。。。函数开始。。。。。</p>
+<p>首先拿到路径，然后判断路径是否为空，如果为空，直接退出。</p>
+<p>不为空的话，开始对路径进行扫描用scandir() 函数，这个函数会首先判断给出的路径是不是目录，如果不是则会直接返回 false</p>
+<p>返回结果是一个数组，包含路径中的目录和文件。</p>
+<p>用foreach循环出来，拼接字符串。凑成新路径</p>
+<p>然后再用 is_dir() 判断该新路径是目录还是文件 还有就是要筛选出 . 和 .. 这在win下是返回本级目录和父目录对我们没有意义。</p>
+<p>筛选完毕后，把 目录名 放入关联数组 title 中，而 lists 中则对 scandir() 扫描出来的内容进行 递归，判断当前路径是否还是存在。</p>
+<p>如果is_dir() 判断出并不是目录，那我们就在判断是否为文件，因为我需要只展示md的文件，所以在这里面，我再套一个if用来判断是否是md文件（substr()），如果是才会继续记录到数组 lists 中的 title 负责记录 文件名，然后 下面的 lists 创建新的数组 以备下次递归再次调用时，建立新的数组。（因为是遵循深度优先，所以深度优先结束后，必须创建一个新的数组，让前端（代码）知道这是新的开始(新章节)）</p>
+<p>最后返回的是一个以N个一位数组开始的深度为N的N维数组。</p>
+<p>前端就可以根据层次来编写N个foreach循环。</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$getDir</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token variable">$getDir</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$lists</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//判断目录是否为空</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token variable">$lists</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token variable">$files</span> <span class="token operator">=</span> <span class="token function">scandir</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$files</span> <span class="token keyword">as</span> <span class="token variable">$v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">/**@var string $v */</span>
+                <span class="token variable">$newPath</span> <span class="token operator">=</span> <span class="token variable">$path</span> <span class="token punctuation">.</span> <span class="token constant">DIRECTORY_SEPARATOR</span> <span class="token punctuation">.</span> <span class="token variable">$v</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_dir</span><span class="token punctuation">(</span><span class="token variable">$newPath</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$v</span> <span class="token operator">!=</span> <span class="token string">'.'</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$v</span> <span class="token operator">!=</span> <span class="token string">'..'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token variable">$lists</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+                        <span class="token string">"title"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$v</span><span class="token punctuation">,</span>
+                        <span class="token string">"lists"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$getDir</span><span class="token punctuation">(</span><span class="token variable">$newPath</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_file</span><span class="token punctuation">(</span><span class="token variable">$newPath</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token variable">$namePtah</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$newPath</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$namePtah</span> <span class="token operator">!=</span> <span class="token string">'text.md'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment" spellcheck="true">//用来筛选</span>
+
+
+                        <span class="token variable">$lists</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+                            <span class="token string">"title"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$v</span><span class="token punctuation">,</span>
+                            <span class="token string">"lists"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">return</span> <span class="token variable">$lists</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token function">realpath</span><span class="token punctuation">(</span><span class="token constant">__DIR__</span> <span class="token punctuation">.</span> <span class="token string">'/../view\Book\test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token variable">$getDir</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span> <span class="token variable">$list</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>。。。。。函数结束。。。。。</p>
+<p>关于匿名函数，我最初用的是普通函数，带我的师傅看了之后，给我改成了匿名，然后用 use说可以加快处理速度。。。。可能吧，大佬的话咱也不敢多问。</p>
+<p>one、one_1、one_2</p>
+<p>然后就是展示了</p>
+<p>用 realpath() 和 <strong>DIR</strong> 拼接一个当前路径出来</p>
+<p>用GET获取到前端的文件和文件名，然后然后拼接。</p>
+<p>先检测是不是空，如果不是，那就开始读取 fopen() </p>
+<p>fread()这个函数，第二个参数是控制单次读取的最大字节数，这个我感觉随意呗，1024 吉利。</p>
+<pre class=" language-php"><code class="language-php">    <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token function">realpath</span><span class="token punctuation">(</span><span class="token constant">__DIR__</span> <span class="token punctuation">.</span> <span class="token string">'/../view\Book\test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//拼接路径</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">isGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$file_three</span> <span class="token operator">=</span> Request<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token string">"file_three"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$path_route</span> <span class="token operator">=</span> <span class="token variable">$path</span> <span class="token punctuation">.</span> <span class="token string">"\\"</span> <span class="token punctuation">.</span> <span class="token variable">$file_three</span><span class="token punctuation">;</span>
+            <span class="token variable">$file_path</span> <span class="token operator">=</span> <span class="token variable">$path_route</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//读取文件</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$file_path</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token variable">$file_path</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+                <span class="token variable">$buffer</span> <span class="token operator">=</span> <span class="token number">1024</span><span class="token punctuation">;</span> 
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">fread</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$buffer</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span></code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>大的功能已经完成了，剩下的估计就是边边角角，没有了。</p>
+<p>中间也是卡壳，很多东西都单独写过，但是作为一个整体，还是感觉出太嫩。继续学习。</p>
+<p>[1] 师傅说不用one 、one_1 、one_2 这三个网页，一个网页就可以，我写到这，感觉也对，后台做点限制，用if..else走输出不同的内容就行。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -582,7 +744,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.Caishuhanhhh.github.io/2020/05/22/yong-js-ku-ba-markdown-zhuan-huan-wei-html/">http://www.Caishuhanhhh.github.io/2020/05/22/yong-js-ku-ba-markdown-zhuan-huan-wei-html/</a>
+                    <a href="http://www.Caishuhanhhh.github.io/2020/05/22/yao-qiu-shi-xian-lei-si-kan-yun-de-zui-ji-ben-gong-neng/">http://www.Caishuhanhhh.github.io/2020/05/22/yao-qiu-shi-xian-lei-si-kan-yun-de-zui-ji-ben-gong-neng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,8 +782,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/javascript/">
-                                    <span class="chip bg-color">javascript</span>
+                                <a href="/tags/JavaScript-PHP/">
+                                    <span class="chip bg-color">JavaScript + PHP</span>
                                 </a>
                             
                         </div>
@@ -815,20 +977,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/22/yao-qiu-shi-xian-lei-si-kan-yun-de-zui-ji-ben-gong-neng/">
+                <a href="/2020/05/22/tp5.1-shi-xian-jian-yi-liu-yan-ban/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/05/22/YOi5Bd.png" class="responsive-img" alt="实现类似看云的最基本功能(类似markdow）">
+                        <img src="https://s1.ax1x.com/2020/05/22/YOFB28.jpg" class="responsive-img" alt="TP5.1实现简易留言板之一">
                         
-                        <span class="card-title">实现类似看云的最基本功能(类似markdow）</span>
+                        <span class="card-title">TP5.1实现简易留言板之一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            依旧是搬运自己的csdn博客要求：实现类似看云的最基本功能。
-语言：PHP ，框架Thinkphp
-要点：如何实现同一页面展示不同内容、实现静态html文件自动更新、PHP如何遍历所有文件以及文件夹、读取文件内容Thinkphp的标签的使用
+                            基本功能，点赞，留言，评论。
+最简单的留言板，需要的数据表  用户表，评论表，留言内容表。
+用户表：
+id name pwd username uerimg （ID 用户账号 密码 昵称 头像）
+留言表：
+id username time 
                         
                     </div>
                     <div class="publish-info">
@@ -850,8 +1015,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript-PHP/">
-                        <span class="chip bg-color">JavaScript + PHP</span>
+                    <a href="/tags/TP5-1-PHP/">
+                        <span class="chip bg-color">TP5.1 + PHP</span>
                     </a>
                     
                 </div>
@@ -865,31 +1030,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/21/huan-ying-lai-dao-ben-zhan/">
+                <a href="/2020/05/22/yong-js-ku-ba-markdown-zhuan-huan-wei-html/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/05/21/YqMkX6.png" class="responsive-img" alt="欢迎来到本站">
+                        <img src="https://s1.ax1x.com/2020/05/22/YOPfwn.jpg" class="responsive-img" alt="用JS库把markdown转换为html">
                         
-                        <span class="card-title">欢迎来到本站</span>
+                        <span class="card-title">用JS库把markdown转换为html</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            欢迎首次登陆本站本站创建于2020年5月20日 于5月21日起正式运营
-服务器本站暂时依托于github,gitee仓库运行，后期将部署到阿里云服务器
-宗旨欢迎世界各地开发者到此参观
-鸣谢hexo  开发者B站up 雨落弦鸣github c
+                            
+原来CSDN博客内容 首发19年在实习单位，要求写一个类似wiki的出来，然后本人JS学的不是很好，没办短时间写出来。从网上找了好多，也没有合适的，最后在推荐 （具体是哪个大神现在找不到了 等找到马上感谢他）这个https://githu
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            blue—sky
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -897,8 +1064,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A6%96%E6%AC%A1%E5%8F%91%E5%B8%83/">
-                        <span class="chip bg-color">首次发布</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>

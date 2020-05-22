@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="测试, Windy">
+    <meta name="keywords" content="TP5.1实现简易留言板之二, Windy">
     <meta name="description" content="行百里者半九十">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>测试 | Windy</title>
+    <title>TP5.1实现简易留言板之二 | Windy</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/21/YqMkX6.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/22/YOFB28.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">测试</h1>
+                    <h1 class="description center-align post-title">TP5.1实现简易留言板之二</h1>
                 </div>
             </div>
         </div>
@@ -440,14 +440,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9/">
-                                <span class="chip bg-color">测试内容</span>
+                            <a href="/tags/TP5-1-PHP/">
+                                <span class="chip bg-color">TP5.1 + PHP</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -470,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    54
+                    883
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -492,7 +501,124 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><script>
+                <p>比较尴尬。。。反正是自己的学习记录。。。无所谓哪里了。</p>
+<p>怎么获取留言内容以及精确评论呢？我是用｛volist｝｛/volist｝标签做了一个循环然后</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>good<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{$vo.id}<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点赞数目{$vo.dianzan}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bad<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{$vo.id}<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>讨厌数目{$vo.taoyan}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>speak<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>{$i}</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>提交评论<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-s<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>{$vo.id}</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>look<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{$i}<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>展示评论<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>close<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{$i}<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>关闭评论<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>show<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{$vo.id}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>worring<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>举报<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>用class和id分别是标记button的名字 和 精确定位。</p>
+<p>插一句，我隐约已经知道class和id怎么用了，确实是实践出真知</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> check <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".look"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> ids <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//文章id</span>
+                $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    type<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+                    url<span class="token punctuation">:</span> <span class="token string">"http://liuyanban.cn/public/index.php/index/index/huifu"</span><span class="token punctuation">,</span>
+                    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">'id'</span><span class="token punctuation">:</span> ids<span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    dataType<span class="token punctuation">:</span> <span class="token string">"json"</span><span class="token punctuation">,</span>
+                    complete<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"("</span> <span class="token operator">+</span> i<span class="token punctuation">.</span>responseText <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> check <span class="token operator">=</span> d<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>check<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> num<span class="token punctuation">;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>check <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">for</span> <span class="token punctuation">(</span>num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> num <span class="token operator">&lt;</span> d<span class="token punctuation">.</span>length<span class="token punctuation">;</span> num<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                <span class="token keyword">var</span> new_span <span class="token operator">=</span> <span class="token string">"&lt;span class = 'ls1' >"</span> <span class="token operator">+</span> d<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'pltime'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;/span>"</span><span class="token punctuation">;</span>
+                                <span class="token keyword">var</span> new_br <span class="token operator">=</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+                                <span class="token keyword">var</span> new_span1 <span class="token operator">=</span> <span class="token string">"&lt;span class = 'ls2' >"</span> <span class="token operator">+</span> d<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'uid'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" *对* "</span> <span class="token operator">+</span> d<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'toid'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"说:"</span> <span class="token operator">+</span> <span class="token string">"&lt;/span>"</span><span class="token punctuation">;</span>
+                                <span class="token keyword">var</span> new_span2 <span class="token operator">=</span> <span class="token string">"&lt;span class = 'ls3' >"</span> <span class="token operator">+</span> d<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'pinglunneirong'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;/span>"</span><span class="token punctuation">;</span>
+                                <span class="token keyword">var</span> new_br1 <span class="token operator">=</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+                                <span class="token comment" spellcheck="true">// var new_br2 = "&lt;button  type = 'button'>" + "回复按钮暂时不启用" + "&lt;/button>" + "&lt;br>";</span>
+                                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>new_span<span class="token punctuation">,</span> new_br<span class="token punctuation">,</span> new_span1<span class="token punctuation">,</span> new_span2<span class="token punctuation">,</span> new_br1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">var</span> span <span class="token operator">=</span> <span class="token string">"&lt;span>"</span> <span class="token operator">+</span> <span class="token string">"暂时没有人评论！不是政敏的原因哦"</span> <span class="token operator">+</span> <span class="token string">"&lt;/span>"</span><span class="token punctuation">;</span>
+                            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>span<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".close"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".show:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".speak"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> x <span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".text-s:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".text-s:eq("</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>m <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                        type<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+                        url<span class="token punctuation">:</span> <span class="token string">"http://liuyanban.cn/public/index.php/index/index/pinglun"</span><span class="token punctuation">,</span>
+                        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                            <span class="token string">'id'</span><span class="token punctuation">:</span> n<span class="token punctuation">,</span>
+                            <span class="token string">'text-body'</span><span class="token punctuation">:</span> m
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        dataType<span class="token punctuation">:</span> <span class="token string">"json"</span><span class="token punctuation">,</span>
+                        success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"请输入评论内容"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".good"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> Oa <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> id <span class="token operator">=</span> Oa<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    type<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+                    url<span class="token punctuation">:</span> <span class="token string">"http://liuyanban.cn/public/index.php/index/index/dianzan"</span><span class="token punctuation">,</span>
+                    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">'id'</span><span class="token punctuation">:</span> id
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    dataType<span class="token punctuation">:</span> <span class="token string">"json"</span><span class="token punctuation">,</span>
+                    success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".bad"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> Oa <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> id <span class="token operator">=</span> Oa<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    type<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+                    url<span class="token punctuation">:</span> <span class="token string">"http://liuyanban.cn/public/index.php/index/index/taoyan"</span><span class="token punctuation">,</span>
+                    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">'id'</span><span class="token punctuation">:</span> id
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    dataType<span class="token punctuation">:</span> <span class="token string">"json"</span><span class="token punctuation">,</span>
+                    success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>嗯，以上就是jQuery的代码，一开始确实不是很懂，然后看了论坛里大佬的方法，自己摸索出来了一个很垃圾的东西。但是还是存在一个致命的bug就是你点击显示评论，再点击关闭评论，这样评论内容不会出现重复。但是你要是一直点击显示评论，则会不停的重复出现，直到你点击关闭为止。应该还是在complete函数加限制了，无奈本人技术实在有限QWQ。</p>
+<p>其他的倒是没什么了。下一个版本就是把界面弄得好看点，用bootstrap美化一下。还有上一篇提到的各种功能。</p>
+<p>嗯，距离发工资还有2天，虽然钱很少，真的少，当然跟我技术渣有99%的关系。月底就撤了，暑假看看把英语再学习，拿出四级证，然后考高中的信息老师。哎，考上本科的感觉真好。</p>
+<p>最后一句，可以骂我的代码。求各位大佬别骂我人。我肥宅一个，既不是现充，也不是键盘侠。求放过我本人人格。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -535,7 +661,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.Caishuhanhhh.github.io/2020/05/22/ce-shi-di-er-pian-wen-zhang-da-kai-wen-ti/">http://www.Caishuhanhhh.github.io/2020/05/22/ce-shi-di-er-pian-wen-zhang-da-kai-wen-ti/</a>
+                    <a href="http://www.Caishuhanhhh.github.io/2020/05/22/tp5.1-shi-xian-jian-yi-liu-yan-ban-zhi-er/">http://www.Caishuhanhhh.github.io/2020/05/22/tp5.1-shi-xian-jian-yi-liu-yan-ban-zhi-er/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,8 +699,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9/">
-                                    <span class="chip bg-color">测试内容</span>
+                                <a href="/tags/TP5-1-PHP/">
+                                    <span class="chip bg-color">TP5.1 + PHP</span>
                                 </a>
                             
                         </div>
@@ -764,46 +890,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/22/ce-shi-di-er-pian-wen-zhang-da-kai-wen-ti/">
+                <a href="/2020/05/22/php-shi-xian-gou-wu-che/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/05/21/YqMkX6.png" class="responsive-img" alt="测试">
+                        <img src="https://s1.ax1x.com/2020/05/22/YOi5Bd.png" class="responsive-img" alt="PHP+JQuery实现购物车">
                         
-                        <span class="card-title">测试</span>
+                        <span class="card-title">PHP+JQuery实现购物车</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            测试
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { retu
+                            \1. 未登录且未注册 ，选购商品，然后退出
+\2. 未登录但有账号，未登录下选购商品，退出
+3.登录，选购商品退出，
+4.登录，选购商品，退出，在其他客户端登录
+第一个只能用session或者cookie 为了不给服务器增加负担，我用co
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            blue—sky
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9/">
-                        <span class="chip bg-color">测试内容</span>
+                    <a href="/tags/PHP-JQueryuery/">
+                        <span class="chip bg-color">PHP+JQueryuery</span>
                     </a>
                     
                 </div>
@@ -817,19 +946,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/22/yong-js-ku-ba-markdown-zhuan-huan-wei-html/">
+                <a href="/2020/05/22/tp5.1-shi-xian-jian-yi-liu-yan-ban/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/05/22/YLbgEQ.jpg" class="responsive-img" alt="用JS库把markdown转换为html">
+                        <img src="https://s1.ax1x.com/2020/05/22/YOFB28.jpg" class="responsive-img" alt="TP5.1实现简易留言板之一">
                         
-                        <span class="card-title">用JS库把markdown转换为html</span>
+                        <span class="card-title">TP5.1实现简易留言板之一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-原来CSDN博客内容 首发19年在实习单位，要求写一个类似wiki的出来，然后本人JS学的不是很好，没办短时间写出来。从网上找了好多，也没有合适的，最后在推荐 （具体是哪个大神现在找不到了 等找到马上感谢他）这个https://githu
+                            基本功能，点赞，留言，评论。
+最简单的留言板，需要的数据表  用户表，评论表，留言内容表。
+用户表：
+id name pwd username uerimg （ID 用户账号 密码 昵称 头像）
+留言表：
+id username time 
                         
                     </div>
                     <div class="publish-info">
@@ -851,8 +984,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/TP5-1-PHP/">
+                        <span class="chip bg-color">TP5.1 + PHP</span>
                     </a>
                     
                 </div>
@@ -1090,7 +1223,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">538</span>&nbsp;字
+                class="white-color">5.4k</span>&nbsp;字
             
             
             
