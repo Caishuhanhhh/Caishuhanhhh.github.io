@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Windy">
+    <meta name="keywords" content="分类: 收音机呼号, Windy">
     <meta name="description" content="行百里者半九十">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Windy</title>
+    <title>分类: 收音机呼号 | Windy</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Caishuhanhhh/Caishuhanhhh.github.io/libs/awesome/css/all.css">
@@ -306,56 +306,9 @@
 
 </header>
 
-    
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -391,178 +344,62 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/Caishuhanhhh" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/Caishuhanhhh" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:749916276@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=749916276" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 749916276" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
     </div>
-
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
-        
-    });
-</script>
-
-
 
 <main class="content">
 
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;一路前行
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            但行好事,莫问前程
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/%E6%8A%80%E6%9C%AF/" title="技术: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">技术
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E6%94%B6%E9%9F%B3%E6%9C%BA%E5%91%BC%E5%8F%B7/" title="收音机呼号: 10">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F5EEF8;">收音机呼号
+                        <span class="tag-length">10</span>
+                    </span>
+                </a>
+                
+                
+            </div>
         </div>
     </div>
 </div>
 
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
     
 
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-tian-jin-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="天津市调频呼号">
                             
                             <span class="card-title">天津市调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -611,17 +448,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-shang-hai-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="上海市调频呼号">
                             
                             <span class="card-title">上海市调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -657,17 +493,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-shan-dong-sheng-zi-bo-shi-zhang-dian-qu/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="山东省淄博市张店区调频呼号">
                             
                             <span class="card-title">山东省淄博市张店区调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -705,17 +540,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-shan-dong-sheng-ji-nan-shi-lai-wu-qu/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="山东省济南市莱芜区调频呼号">
                             
                             <span class="card-title">山东省济南市莱芜区调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -751,17 +585,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-jiang-su-sheng-wu-xi-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="江苏省无锡市调频呼号">
                             
                             <span class="card-title">江苏省无锡市调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -797,17 +630,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-hu-bei-sheng-tian-men-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="湖北省天门市调频呼号">
                             
                             <span class="card-title">湖北省天门市调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -849,17 +681,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-hu-bei-sheng-huang-gang-shi-huang-zhou/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="湖北省黄冈市黄州调频呼号">
                             
                             <span class="card-title">湖北省黄冈市黄州调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -901,17 +732,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-he-bei-sheng-shi-jia-zhuang/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="河北省石家庄调频呼号">
                             
                             <span class="card-title">河北省石家庄调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -954,17 +784,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-guang-dong-sheng-jiang-men-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="广东江门调频呼号">
                             
                             <span class="card-title">广东江门调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -1002,17 +831,16 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/05/23/shou-yin-ji-bei-jing-shi/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             <img src="https://s1.ax1x.com/2020/05/23/YvbxqP.jpg" class="responsive-img" alt="北京市调频呼号">
                             
                             <span class="card-title">北京市调频呼号</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -1054,132 +882,9 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/05/22/php-shi-xian-gou-wu-che/">
-                        <div class="card-image">
-                            
-                            <img src="https://s1.ax1x.com/2020/05/22/YOi5Bd.png" class="responsive-img" alt="PHP+JQuery实现购物车">
-                            
-                            <span class="card-title">PHP+JQuery实现购物车</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                \1. 未登录且未注册 ，选购商品，然后退出
-\2. 未登录但有账号，未登录下选购商品，退出
-3.登录，选购商品退出，
-4.登录，选购商品，退出，在其他客户端登录
-第一个只能用session或者cookie 为了不给服务器增加负担，我用co
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PHP-JQueryuery/">
-                            <span class="chip bg-color">PHP+JQueryuery</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/05/22/tp5.1-shi-xian-jian-yi-liu-yan-ban-zhi-er/">
-                        <div class="card-image">
-                            
-                            <img src="https://s1.ax1x.com/2020/05/22/YOFB28.jpg" class="responsive-img" alt="TP5.1实现简易留言板之二">
-                            
-                            <span class="card-title">TP5.1实现简易留言板之二</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                比较尴尬。。。反正是自己的学习记录。。。无所谓哪里了。
-怎么获取留言内容以及精确评论呢？我是用｛volist｝｛/volist｝标签做了一个循环然后
-&lt;button class="good" id="{$vo.id}" type="b
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/TP5-1-PHP/">
-                            <span class="chip bg-color">TP5.1 + PHP</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
-
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a class="left btn-floating btn-large disabled">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
